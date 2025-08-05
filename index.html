@@ -867,9 +867,7 @@ Which project am I working on right now?</h3>
     </tr>
 </table>
      
-                    <div style="margin-top: 30px;">
-                        <a href="#practice" class="cta-button">Start Practicing Now</a>
-                    </div>
+               
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="QA Automation">
@@ -972,9 +970,14 @@ After testing is complete, Grid is shut down and the workspace is cleaned up.</p
                         <a href="https://github.com/MehmetuAlatas/dockerjenkins" class="github-link" target="_blank">View on GitHub</a>
                     </div>
                 </div>
-                 
+     
             </div>
+                            
             </div>
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <a href="#practice" class="cta-button">Start Practicing Now</a>
+</div>
+
         </div>
 
     </section>
@@ -1056,22 +1059,29 @@ After testing is complete, Grid is shut down and the workspace is cleaned up.</p
             });
         });
 
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute("href");
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: "smooth"
-                    });
-                }
+        // Smooth scroll for anchor links
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            // Get the height of the navbar
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+            // Adjust scroll position to account for navbar height
+            window.scrollTo({
+                top: targetElement.offsetTop - navbarHeight,  // Subtract the navbar height
+                behavior: "smooth"
             });
-        });
+        }
+    });
+});
+
+
 
         // Highlight active section in navbar
         window.addEventListener("scroll", () => {
